@@ -40,8 +40,10 @@ def update_moive_recommend(movie, top_5_movie):
     table = dynamodb.Table('Movie_Recommend')
 
     table.put_item(
+        Item = {
          'movie_id': movie,
          'recommend':top_5_movie
+        }
     )
 
 def update_user_movie_recommend(user_id, top_5_movie):
@@ -49,8 +51,10 @@ def update_user_movie_recommend(user_id, top_5_movie):
     table = dynamodb.Table('Movie_User_Recommend')
     
     table.put_item(
-        'user_id': user_id,
-        'recommend':top_5_movie
+        Item = {
+            'user_id': user_id,
+            'recommend':top_5_movie
+        }
     )
 
 def update_user_recommend(user_id, top_5_user):
@@ -58,6 +62,8 @@ def update_user_recommend(user_id, top_5_user):
     table = dynamodb.Table('User_Recommend')
     
     table.put_item(
+        Item = {
         'user_id': user_id,
         'recommend':top_5_user
+        }
     )

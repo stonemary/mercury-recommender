@@ -1,6 +1,5 @@
 from dataservice import retrieve_movie_info
 from dataservice import retrieve_user_review_history
-from dataservice import update_movie_recommend
 import operator
 import math
 import time
