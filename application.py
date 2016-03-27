@@ -6,14 +6,14 @@ from dataservice import retrieve_movie_info
 from dataservice import retrieve_user_review_history
 from recommenderM2M import calculate_top_5_movie
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
-@app.route('/healthcheck/')
+@application.route('/healthcheck/')
 def root():
     return '1'
 
-@app.route('/recommend/movie/<string:movie_id>/')
+@application.route('/recommend/movie/<string:movie_id>/')
 def recommend_movies_from_movie(movie_id):
     if not movie_id.isdigit():
         return 'BAD_REQUEST', 400
@@ -26,5 +26,5 @@ def recommend_movies_from_movie(movie_id):
     return jsonify(**return_value), 200
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    application.debug = True
+    application.run()
